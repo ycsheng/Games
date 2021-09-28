@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>滚动</title>
+  <style type="text/css">
+    html,body {
+      margin: 0; 
+      padding: 0;
+      
+    }
+    .numbers {
+      position: relative; 
+      width: 800px; 
+      height: 200px; 
+      margin: auto 20px; 
+      color: #fff;
+    }
+    .numbers img {
+      /* display: block;  */
+      width: 100%; 
+      height: 100%; 
+    }
+  </style>
+</head>
+<body ontouchstart>
+<div class="numbers" HALO-NUMBER-SCROLL>
+  <input type="hidden" value="010234" />
+</div>
+<div class="numbers" HALO-NUMBER-SCROLL>
+  <input type="hidden" value="12345" />
+</div>
+<div class="numbers" HALO-NUMBER-SCROLL>
+  <input type="hidden" value="54321" />
+</div>
+<script type="text/javascript" src="numberscroller.js"></script>
+<script type="text/javascript">
+ 
+var NUMBERS = numbers({
+    round:3,//默认三圈
+    duration: 15,//默认1s
+    direction: 'alternate',//方向，有三个值，up,down,alternate。默认是alternate
+    l2r:1,//滚动顺序，如果为1表示 从左到右 如果为0表示 从右到左
+    delay: 1,//组之间的时间延迟，默认.3s
+    groupNum:2,//默认2个一组
+    diffrentiation:1,//差异化滚动，默认是差异化滚动
+    undreg:'^xxx', //强制无差异化匹配 ^ooxx 表示开头第3，4为无差异化滚动 xxx$ 表示倒数的后三们为无差异滚动
+    numList: [ // 数字列表
+      "<img src='../imgers/1.png'>",
+      "<img src='../imgers/2.png'>",
+      "<img src='../imgers/3.png'>",
+      "<img src='../imgers/4.png'>",
+      "<img src='../imgers/5.png'>",
+      "<img src='../imgers/6.png'>", 
+    ], 
+  });
+NUMBERS.scroll();
+</script>
+</body>
+</html>
